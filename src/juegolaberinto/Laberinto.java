@@ -17,7 +17,7 @@ import javax.swing.JComponent;
 public class Laberinto extends JComponent implements Constantes {
     
     public int ancho,largo;
-    public  Celda[][] casillas;
+    public Celda[][] casillas;
     int i_jugador,j_jugador;
     
     public Laberinto(){
@@ -52,6 +52,10 @@ public class Laberinto extends JComponent implements Constantes {
                casillas[i][j].update(g);
             }
         }
+    }
+    
+    public Celda[][] getLaberinto(){
+        return casillas;
     }
     
     public void chequearTecla(KeyEvent evento){

@@ -6,12 +6,12 @@
 
 package juegolaberinto;
 
+import busqueda.Busqueda;
+import busqueda.Estado;
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.JFrame;
 import java.util.Timer;
+import javax.swing.JFrame;
 
 /**
  *
@@ -23,24 +23,23 @@ public class VentanaPrincipal extends JFrame
     public Lienzo lienzo;
     public AnimadorAutomatico animador;
     
-    public VentanaPrincipal(){
+    public VentanaPrincipal(){ 
         lienzo=new Lienzo();
         lienzo.setFocusable(true);
         lienzo.requestFocus();
+       
         Timer timer = new Timer(); 
-        
         //Animación
-        ArrayList<Character> pasos = new ArrayList<>();
-        pasos.add('D');pasos.add('U');
-        pasos.add('R');pasos.add('L');
-        pasos.add('R');pasos.add('U');
-        pasos.add('U');pasos.add('D');
-        pasos.add('U');
+        animador = new AnimadorAutomatico(lienzo);
+        timer.scheduleAtFixedRate(animador, 0, 1000);
+        
         this.getContentPane().setLayout(new BorderLayout());
         this.getContentPane().add(lienzo,BorderLayout.CENTER);
         this.setSize(lienzo.getWidth()+22, lienzo.getHeight()+42);
-        animador = new AnimadorAutomatico(lienzo,pasos);
-        timer.scheduleAtFixedRate(animador, 0, 1000);
+        
+        
+        
+        
 
     }
 }

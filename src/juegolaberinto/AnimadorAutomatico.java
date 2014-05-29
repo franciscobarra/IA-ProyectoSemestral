@@ -6,6 +6,7 @@
 
 package juegolaberinto;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.TimerTask;
 
@@ -16,31 +17,38 @@ import java.util.TimerTask;
 public class AnimadorAutomatico extends TimerTask implements Constantes{
 
     public Lienzo lienzo;
-    public ArrayList<Character> pasos;
+    public char pasos;
     public int paso_actual;
+    public int x,y;
     
-    public AnimadorAutomatico(Lienzo lienzo,ArrayList<Character> pasos){
+    public AnimadorAutomatico(Lienzo lienzo){
         this.lienzo = lienzo;
-        this.pasos = pasos;
         paso_actual = 0;
+        this.x=0;
+        this.y=0;
     }
     
     @Override
     public void run() {
-        if(paso_actual < pasos.size()){
-            switch(pasos.get(paso_actual)){
-                case 'D' : lienzo.laberinto.mover_abajo();break;
-                case 'U' : lienzo.laberinto.mover_arriba();break;
-                case 'R' : lienzo.laberinto.mover_derecha();break;
-                case 'L' : lienzo.laberinto.mover_izquierda();break;
+        pasos=lienzo.iniciar_busqueda(x,y);
+            switch(pasos){
+                case 'D' : lienzo.laberinto.mover_abajo();
+                           x+=1;
+                break;
+                case 'U' : lienzo.laberinto.mover_arriba();
+                           x-=1;
+                break;
+                case 'R' : lienzo.laberinto.mover_derecha();
+                           y+=1;
+                break;
+                case 'L' : lienzo.laberinto.mover_izquierda();
+                           y-=1;
+                break;
             }
+            
             lienzo.repaint();
-            paso_actual++;
-        }else{
-            this.cancel();
-        }
-        
-        
+            System.out.println(pasos);
+                 
     }
     
     

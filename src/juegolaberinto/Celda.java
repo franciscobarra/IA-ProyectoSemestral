@@ -26,8 +26,8 @@ import javax.swing.JComponent;
 
 public class Celda extends JComponent implements Constantes {
     
-    int x, y;
-    char tipo;
+    public int x, y;
+    public char tipo;
     BufferedImage personaje,muro,vacio;
     
     public Celda(int x, int y, char tipo){
