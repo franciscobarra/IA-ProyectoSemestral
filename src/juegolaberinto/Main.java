@@ -21,6 +21,7 @@ public class Main {
         VentanaPrincipal vp = new VentanaPrincipal();
         vp.setVisible(true);
         vp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
     }
     
 }
