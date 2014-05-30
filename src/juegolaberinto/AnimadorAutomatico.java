@@ -33,16 +33,16 @@ public class AnimadorAutomatico extends TimerTask implements Constantes{
         pasos=lienzo.iniciar_busqueda(x,y);
             switch(pasos){
                 case 'D' : lienzo.laberinto.mover_abajo();
-                           x+=1;
-                break;
-                case 'U' : lienzo.laberinto.mover_arriba();
-                           x-=1;
-                break;
-                case 'R' : lienzo.laberinto.mover_derecha();
                            y+=1;
                 break;
-                case 'L' : lienzo.laberinto.mover_izquierda();
+                case 'U' : lienzo.laberinto.mover_arriba();
                            y-=1;
+                break;
+                case 'R' : lienzo.laberinto.mover_derecha();
+                           x+=1;
+                break;
+                case 'L' : lienzo.laberinto.mover_izquierda();
+                           x-=1;
                 break;
             }
             

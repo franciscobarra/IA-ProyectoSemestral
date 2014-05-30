@@ -58,7 +58,7 @@ public class Lienzo extends Canvas {
                if(laberinto.casillas[i][j].dentro_area(evt.getX(),evt.getY())){
                    if(laberinto.casillas[i][j].tipo!='J'&& 
                       laberinto.casillas[i][j].tipo!='P'){
-                       laberinto.casillas[j][i].tipo='P';
+                      laberinto.casillas[i][j].tipo='P';
                    }
                    else
                    laberinto.casillas[i][j].tipo='V';
