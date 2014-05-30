@@ -52,33 +52,32 @@ public class Estado {
     //Matriz [6][4];
     
     public boolean moverArriba(){
-        if(posicion.x-1>=0){
-            if(laberinto[posicion.x-1][posicion.y].tipo=='V'){
-                System.out.println("X: "+posicion.x+", Y");
+        if(posicion.y-1>=0){
+            if(laberinto[posicion.x][posicion.y-1].tipo=='V'){
                 return true;
             }
         }
         return false;
     }
      public boolean moverAbajo(){
-         if(posicion.x+1<=15){
-            if(laberinto[posicion.x+1][posicion.y].tipo=='V'){
+         if(posicion.y+1<=15){
+            if(laberinto[posicion.x][posicion.y+1].tipo=='V'){
                return true;
             }
          }
         return false;
     }
       public boolean moverIzquierda(){
-          if(posicion.y-1>=0){
-            if(laberinto[posicion.x][posicion.y-1].tipo=='V'){
+          if(posicion.x-1>=0){
+            if(laberinto[posicion.x-1][posicion.y].tipo=='V'){
                return true;
             }
           }
         return false;
       }
        public boolean moverDerecha(){
-           if(posicion.y+1<=15){
-            if(laberinto[posicion.x][posicion.y+1].tipo=='V'){
+           if(posicion.x+1<=15){
+            if(laberinto[posicion.x+1][posicion.y].tipo=='V'){
                return true;
             }
            }

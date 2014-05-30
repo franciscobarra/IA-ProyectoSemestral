@@ -53,7 +53,7 @@ public class Busqueda {
             if(getBusqueda())abierto.remove(0); // busqueda en anchura
             
         }
-        if(!esMeta)return null;
+        if(!esMeta)return '0';
      
         while(actual.getAntecesor()!=null){
             resultado=actual.getMovimiento();
@@ -69,7 +69,7 @@ public class Busqueda {
         
         if(actual.moverArriba()){
            posicion = actual.getPosicion(); 
-           posicion.x-=1;
+           posicion.y-=1;
            opcion = new Estado(posicion, actual,'U',actual.getLaberinto());
            if(getBusqueda())abierto.add(opcion); // busqueda en anchura;
            if(!getBusqueda())abierto.add(0,opcion); // busqueda en profundidad;
@@ -77,7 +77,7 @@ public class Busqueda {
         
         if(actual.moverDerecha()){
            posicion = actual.getPosicion(); 
-           posicion.y+=1;
+           posicion.x+=1;
            opcion = new Estado(posicion, actual,'R',actual.getLaberinto());
            if(getBusqueda())abierto.add(opcion);
            if(!getBusqueda())abierto.add(0,opcion);
@@ -85,7 +85,7 @@ public class Busqueda {
         
         if(actual.moverAbajo()){
            posicion = actual.getPosicion(); 
-           posicion.x+=1;
+           posicion.y+=1;
            opcion = new Estado( posicion, actual,'D',actual.getLaberinto());
            if(getBusqueda())abierto.add(opcion);
            if(!getBusqueda())abierto.add(0,opcion);
@@ -93,7 +93,7 @@ public class Busqueda {
         
         if(actual.moverIzquierda()){
            posicion = actual.getPosicion(); 
-           posicion.y-=1;
+           posicion.x-=1;
            opcion = new Estado(posicion, actual,'L',actual.getLaberinto()); 
            if(getBusqueda())abierto.add(opcion);
            if(!getBusqueda())abierto.add(0,opcion);
